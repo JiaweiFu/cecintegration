@@ -1,0 +1,8 @@
+#Ant properties
+#Fri Feb 20 10:15:22 CET 2015
+builddate=20150220 1015
+description=cecintegration
+name=cecintegration
+vendor=hybris
+version=5.5.0.0-M3
+version.api=5.5.0

@@ -1,0 +1,19 @@
+<process xmlns="http://www.hybris.de/xsd/processdefinition" start="cecPublishCustomer" name="ceccustomerPublishProcess"
+	processClass="de.hybris.platform.commerceservices.model.process.StoreFrontCustomerProcessModel" onError="error">
+
+	<!-- customerPublishToDatahub" -->
+	<action id="cecPublishCustomer" bean="customerPubAction">
+<!-- TODO enhance the business process based on the result of the service call -->	
+<!-- 		<transition name="OK" to="waitForERPConfirmation" /> -->
+		<transition name="OK" to="success" />
+		<transition name="NOK" to="error" />
+	</action>
+	
+<!-- 	<wait id="waitForERPConfirmation" then="success" prependProcessCode="false">
+		<event>ERPConsumerConfirmationEvent_${process.consumer.number}</event>
+	</wait> -->
+
+	<end id="error" state="ERROR">ERROR: Customer was NOT replicated to Data Hub.</end>
+	<end id="success" state="SUCCEEDED">Customer was replicated to Data Hub.</end>
+
+</process>
